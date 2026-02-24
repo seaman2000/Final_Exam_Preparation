@@ -16,8 +16,11 @@ encrypted_message = list(encrypted_message)
 while True:
     command = input()
     if command == "Decode":
+        print(f"The decrypted message is: {''.join(encrypted_message)}")
         break
+
     parts = command.split("|")
+
     if parts[0] == "Move":
         number_of_letters = int(parts[1])
         encrypted_message = move(number_of_letters, encrypted_message)
@@ -26,4 +29,8 @@ while True:
         value = parts[2]
         encrypted_message = insert(index, value, encrypted_message)
     elif parts[0] == "ChangeAll":
-        pass
+        substr = parts[1]
+        replace = parts[2]
+        encrypted_message = change_all(substr, replace, encrypted_message)
+
+
