@@ -2,8 +2,8 @@ def move(letters_number: int, message:list) -> list:
     return message[letters_number:] + message[:letters_number]
 
 
-def insert(idx: int, value_: str, message:list) -> list:
-    message.insert(idx, value_)
+def insert(idx: int, value_: str, message: list) -> list:
+    message[idx:idx] = value_
     return message
 
 
