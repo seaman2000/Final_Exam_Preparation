@@ -7,8 +7,10 @@ def insert(idx: int, value_: str, message:list) -> list:
     return message
 
 
-def change_all(substring, replacement, message):
-    return [replacement if letter == substring else letter for letter in message]
+def change_all(substring: str, replacement: str, message: list) -> list:
+    message_string = ''.join(message)
+    message_string = message_string.replace(substring, replacement)
+    return list(message_string)
 
 
 encrypted_message = input()
