@@ -1,13 +1,14 @@
 def move(letters_number: int, message:list) -> list:
     return message[letters_number:] + message[:letters_number]
 
+
 def insert(idx: int, value_: str, message:list) -> list:
     message.insert(idx, value_)
     return message
+
+
 def change_all(substring, replacement, message):
-    pass
-
-
+    return [replacement if letter == substring else letter for letter in message]
 
 
 encrypted_message = input()
