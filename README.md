@@ -48,8 +48,4 @@ The main goal is to:
 - Splitting and joining strings
 - Formatting output
 
----
-
-## 🛠️ Project Structure
-
 
