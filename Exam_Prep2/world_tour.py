@@ -1,14 +1,18 @@
 def add_stop(stops:str, idx: int, stop: str):
     if 0 <= idx <= len(stops):
-        stops[idx] += stop
+        return stops[:idx] + stop + stops[idx:]
+    return stops
+
+def remove_stop(stops: str, start: int, end: int):
+    if 0 <= start < end <= len(stops):
+        return stops[:start] + stops[end + 1:]
+    return stops
 
 
-def remove_stop():
-    pass
-
-
-def switch():
-    pass
+def switch(stops:str , old:str , new: str):
+    if old in stops:
+        stops = stops.replace(old, new)
+    return stops
 
 
 all_stops = input()
