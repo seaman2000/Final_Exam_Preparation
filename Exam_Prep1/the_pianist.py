@@ -2,7 +2,7 @@ def add(dictionary, piece_, composer_, key_):
     if piece_ in dictionary:
         return f"{piece_} is already in the collection!"
     else:
-        dictionary[piece_] = (composer_, key_)
+        dictionary[piece_] = [composer_, key_]
         return f"{piece_} by {composer_} in {key_} added to the collection!"
 
 def remove(dictionary, piece_):
@@ -27,10 +27,10 @@ compositions = {}
 
 for _ in range(number_of_pieces):
     piece, composer, key = input().split("|")
-    compositions[piece] = (composer, key)
+    compositions[piece] = [composer, key]
 
 command = input()
-while command != "End":
+while command != "Stop":
 
     command = command.split("|")
     type_of_command = command[0]
@@ -48,6 +48,9 @@ while command != "End":
         new_key = command[2]
         change_key(compositions, piece, new_key)
 
-
-
     command = input()
+
+for piece, values in compositions.items():
+    composer = values[0]
+    key = values[1]
+    print(f"{piece} -> Composer: {composer}, Key: {key}")
