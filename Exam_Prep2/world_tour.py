@@ -1,5 +1,6 @@
-def add_stop():
-    pass
+def add_stop(stops:str, idx: int, stop: str):
+    if 0 <= idx <= len(stops):
+        stops[idx] += stop
 
 
 def remove_stop():
@@ -22,6 +23,7 @@ while command != "Travel":
     if type_of_command == "Add Stop":
         index = int(parts[1])
         current_stop = parts[2]
+        add_stop(all_stops, index, current_stop)
 
     elif type_of_command == "Remove Stop":
         start_index = int(parts[1])
