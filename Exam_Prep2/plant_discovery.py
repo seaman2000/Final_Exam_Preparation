@@ -1,3 +1,5 @@
+import re
+
 def rate(collection: dict, plant_type: str, rating: int):
     if plant_type not in collection:
         return False
@@ -21,10 +23,6 @@ def reset(collection: dict, plant_type: str):
     collection[plant_type][1] = []
     return True
 
-
-
-
-import re
 
 number_of_lines = int(input())
 plants = {}
