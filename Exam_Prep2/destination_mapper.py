@@ -7,5 +7,9 @@ matches = re.findall(pattern, places)
 
 destinations = [match[1] for match in matches]
 
+points = 0
+for destination in destinations:
+    points += len(destination)
 
-print(destinations)
+print(f"Destinations: {', '.join(destinations)}")
+print(f"Travel Points: {points}")
