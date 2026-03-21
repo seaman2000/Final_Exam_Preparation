@@ -1,9 +1,14 @@
-def rate():
-    pass
+def rate(collection: dict, plant_type: str, rating: int):
+    if plant_type not in collection:
+        return "error"
+    collection[plant_type][1].append(rating)
 
 
-def update():
-    pass
+def update(collection: dict, plant_type: str, rarity: int):
+    if plant_type not in collection:
+        return "error"
+
+    collection[plant_type][0] = rarity
 
 
 def reset():
@@ -31,8 +36,11 @@ while command != "Exhibition":
     plant = parts[1]
 
     if type_of_command == "Rate":
-        pass
+        rating = int(parts[2])
+        plants = rate(plants, plant, rating)
+
     elif type_of_command == "Update":
-        pass
+        new_rarity = int(parts[2])
+        plants = update(plants, plant, new_rarity)
     elif type_of_command == "Reset":
         pass
