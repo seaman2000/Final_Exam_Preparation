@@ -11,5 +11,7 @@ points = 0
 for destination in destinations:
     points += len(destination)
 
+# or for points = sum(len(d) for d in destinations)
+
 print(f"Destinations: {', '.join(destinations)}")
 print(f"Travel Points: {points}")
