@@ -1,24 +1,24 @@
-def add(dictionary, piece_, composer_, key_):
-    if piece_ in dictionary:
+def add(collection, piece_, composer_, key_):
+    if piece_ in collection:
         return f"{piece_} is already in the collection!"
-    else:
-        dictionary[piece_] = [composer_, key_]
-        return f"{piece_} by {composer_} in {key_} added to the collection!"
 
-def remove(dictionary, piece_):
-    if piece_ in dictionary:
-        del dictionary[piece_]
+    collection[piece_] = [composer_, key_]
+    return f"{piece_} by {composer_} in {key_} added to the collection!"
+
+def remove(collection, piece_):
+    if piece_ in collection:
+        del collection[piece_]
         return f"Successfully removed {piece_}!"
-    else:
-        return f"Invalid operation! {piece_} does not exist in the collection."
+
+    return f"Invalid operation! {piece_} does not exist in the collection."
 
 
-def change_key(dictionary, piece_, key_new):
-    if piece_ in dictionary:
-        dictionary[piece_][1] = key_new
-        return f"Changed the key of {piece_} to {key_new}"
-    else:
-        return f"Invalid operation! {piece_} does not exist in the collection."
+def change_key(collection, piece_, key_new):
+    if piece_ in collection:
+        collection[piece_][1] = key_new
+        return f"Changed the key of {piece_} to {key_new}!"
+
+    return f"Invalid operation! {piece_} does not exist in the collection."
 
 
 number_of_pieces = int(input())
@@ -32,25 +32,24 @@ for _ in range(number_of_pieces):
 command = input()
 while command != "Stop":
 
-    command = command.split("|")
-    type_of_command = command[0]
-    piece = command[1]
+    parts = command.split("|")
+    type_of_command = parts[0]
+    piece = parts[1]
 
     if type_of_command == "Add":
-        composer = command[2]
-        key = command[3]
-        add(compositions, piece, composer, key)
+        composer = parts[2]
+        key = parts[3]
+        print(add(compositions, piece, composer, key))
 
     elif type_of_command == "Remove":
-        remove(compositions, piece)
+        print(remove(compositions, piece))
 
     elif type_of_command == "ChangeKey":
-        new_key = command[2]
-        change_key(compositions, piece, new_key)
+        new_key = parts[2]
+        print(change_key(compositions, piece, new_key))
 
     command = input()
 
 for piece, values in compositions.items():
-    composer = values[0]
-    key = values[1]
+    composer, key = values
     print(f"{piece} -> Composer: {composer}, Key: {key}")
