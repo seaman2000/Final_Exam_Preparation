@@ -60,7 +60,7 @@ while command != "Exhibition":
     elif type_of_command == "Reset":
         result = reset(plants, plant)
 
-    if result == "error":
+    if not result:
         print("error")
 
     command = input()
@@ -69,5 +69,9 @@ print(f"Plants for the exhibition:")
 for plant, values in plants.items():
     rarity, rating = values
 
-    avg_rating = sum(rating) / len(rating)
+    if len(rating) != 0:
+        avg_rating = sum(rating) / len(rating)
+    else:
+        avg_rating = 0
+
     print(f"- {plant}; Rarity: {rarity}; Rating: {avg_rating:.2f}")
