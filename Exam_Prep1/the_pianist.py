@@ -24,6 +24,7 @@ def change_key(dictionary, piece_, key_new):
 number_of_pieces = int(input())
 
 compositions = {}
+
 for _ in range(number_of_pieces):
     piece, composer, key = input().split("|")
     compositions[piece] = (composer, key)
