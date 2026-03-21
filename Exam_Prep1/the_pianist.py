@@ -5,6 +5,7 @@ def add(collection, piece_, composer_, key_):
     collection[piece_] = [composer_, key_]
     return f"{piece_} by {composer_} in {key_} added to the collection!"
 
+
 def remove(collection, piece_):
     if piece_ in collection:
         del collection[piece_]
