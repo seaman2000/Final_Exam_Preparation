@@ -1,7 +1,7 @@
 def rate(collection: dict, plant_type: str, rating: int):
     if plant_type not in collection:
         return "error"
-    
+
     collection[plant_type][1].append(rating)
 
 
@@ -16,7 +16,7 @@ def reset(collection: dict, plant_type: str):
     if plant_type not in collection:
         return "error"
 
-    del collection[plant_type][1]
+    collection[plant_type][1] = []
 
 
 
@@ -49,3 +49,9 @@ while command != "Exhibition":
 
     elif type_of_command == "Reset":
         plants = reset(plants, plant)
+
+print(f"Plants for the exhibition:")
+for plant, values in plants.items():
+    rarity, rating = values
+    avg_rating = sum(rating) / len(rating)
+    print(f"- {plant}; Rarity: {rarity}; Rating: {avg_rating:.2f}")
