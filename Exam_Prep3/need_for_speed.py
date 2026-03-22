@@ -21,8 +21,9 @@ while command != "Stop":
             car_collection[car][1] -= fuel
             car_collection[car][0] += distance
             print(f"{car} driven for {distance} kilometers. {fuel} liters of fuel consumed.")
-            if car_collection[car][1] >= 100000:
+            if car_collection[car][0] >= 100000:
                 print(f"Time to sell the {car}!")
+                del car_collection[car]
 
     elif type_of_command == "Refuel":
         fuel = int(parts[2])
