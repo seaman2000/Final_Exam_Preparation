@@ -39,10 +39,10 @@ for _ in range(number_of_lines):
 
 command = input()
 pattern = r'[A-Za-z]+|\d+'
-is_valid = True
+
 
 while command != "Exhibition":
-    parts = re.findall(pattern, command) 
+    parts = re.findall(pattern, command)
     type_of_command = parts[0]
     plant = parts[1]
     result = None
