@@ -5,7 +5,7 @@ def insert_space(message:str, idx:int):
 
 def reverse(message: str, sub_string: str):
     idx_of_sub = message.find(sub_string)
-    message = message[:idx_of_sub] + sub_string[::-1]
+    message = message[:idx_of_sub] + message[idx_of_sub + len(sub_string):] + sub_string[::-1]
     return message
 
 
