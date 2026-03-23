@@ -6,11 +6,7 @@ while command != "Done":
     type_of_command = parts[0]
 
     if type_of_command == "TakeOdd":
-        current_password = ""
-        for idx in range(len(given_password)):
-            if idx % 2 == 1:
-                current_password += given_password[idx]
-        given_password = current_password
+        given_password = given_password[1::2]
         print(given_password)
 
     elif type_of_command == "Cut":
@@ -22,7 +18,7 @@ while command != "Done":
     elif type_of_command == "Substitute":
         substring = parts[1]
         substitute = parts[2]
-        if not substring in given_password:
+        if substring not in given_password:
             print("Nothing to replace!")
         else:
             given_password = given_password.replace(substring, substitute)
