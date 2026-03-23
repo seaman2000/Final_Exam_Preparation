@@ -2,7 +2,7 @@ import re
 
 number_of_barcodes = int(input())
 
-pattern = r"@#{1,}[A-Z][A-Za-z0-9]{5,}[A-Z]@#{1,}"
+pattern = r"@#+[A-Z][A-Za-z0-9]{4,}[A-Z]@#+"
 pattern_digits = r'\d'
 
 for _ in range(number_of_barcodes):
