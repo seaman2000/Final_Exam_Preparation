@@ -14,7 +14,7 @@ def flip_upper_and_lower(activation_key: str, upper_lower: str, start: int, end:
 
 
 def slice_(activation_key: str, start: int, end: int):
-    activation_key = activation_key[:start] + activation_key[end + 1:]
+    activation_key = activation_key[:start] + activation_key[end:]
     return activation_key
 
 
@@ -24,7 +24,7 @@ command = input()
 while command != "Generate":
     parts = command.split(">>>")
     action = parts[0]
-    
+
     if action == "Contains":
         substring = parts[1]
         print(contains(raw_activation_key, substring))
