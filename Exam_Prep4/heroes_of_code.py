@@ -42,8 +42,9 @@ for _ in range(number_of_heroes):
     party[hero_name] = [int(hit_points), int(mana_points)]
 
 command = input()
+
 while command != "End":
-    parts = command.split(" – ")
+    parts = command.split(" - ")
     action = parts[0]
     current_hero = parts[1]
 
@@ -63,7 +64,13 @@ while command != "End":
 
     elif action == "Heal":
         amount_of_heal = int(parts[2])
-
+        heal(party, current_hero, amount_of_heal)
 
 
     command = input()
+
+for hero, values in party.items():
+    hp, mana = values
+    print(f"{hero}\n"
+    f"  HP: {hp}\n"
+    f"  MP: {mana}")
