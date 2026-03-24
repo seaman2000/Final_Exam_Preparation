@@ -14,8 +14,7 @@ def flip_upper_and_lower(activation_key: str, upper_lower: str, start: int, end:
 
 
 def slice_(activation_key: str, start: int, end: int):
-    activation_key = activation_key[:start] + activation_key[end:]
-    return activation_key
+    return activation_key[:start] + activation_key[end:]
 
 
 raw_activation_key = input()
