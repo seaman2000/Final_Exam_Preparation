@@ -30,4 +30,5 @@ for match in matches:
 
 print(f"Cool threshold: {cool_threshold}")
 print(f"{len(all_emojis)} emojis found in the text. The cool ones are:")
-print(f"{'\n'.join(cool_emojis)}")
+for emoji in cool_emojis:
+    print(emoji)
