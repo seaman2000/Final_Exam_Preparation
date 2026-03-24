@@ -24,11 +24,13 @@ def recharge(heroes: dict, hero: str, mana_recharge:int):
     return f"{hero} recharged for {amount_recovered} MP!"
 
 
-def heal():
-
-
-
-
+def heal(heroes: dict, hero:str, hp_recovery: int):
+    last_hp = heroes[hero][0]
+    heroes[hero][0] += hp_recovery
+    if heroes[hero][0] > 100:
+        heroes[hero][0] = 100
+    hp_recovered = heroes[hero][0] - last_hp
+    return f"{hero} healed for {hp_recovered} HP!"
 
 
 number_of_heroes = int(input())
@@ -60,7 +62,8 @@ while command != "End":
         recharge(party, current_hero, amount_of_mana)
 
     elif action == "Heal":
-        pass
+        amount_of_heal = int(parts[2])
+
 
 
     command = input()
