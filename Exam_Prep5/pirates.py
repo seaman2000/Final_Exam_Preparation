@@ -39,15 +39,15 @@ while event != "End":
     if action == "Plunder":
         people = int(parts[2])
         gold = int(parts[3])
-        result = plunder(cities, town, people, gold)
+        town_survived = plunder(cities, town, people, gold)
         print(f"{town} plundered! {gold} gold stolen, {people} citizens killed.")
-        if not result:
+        if not town_survived:
             print(f"{town} has been wiped off the map!")
 
     elif action == "Prosper":
         gold = int(parts[2])
-        result = prosper(cities, town, gold)
-        if not result:
+        successful_increase = prosper(cities, town, gold)
+        if not successful_increase:
             print(f"Gold added cannot be a negative number!")
         else:
             total_gold = cities[town][1]
