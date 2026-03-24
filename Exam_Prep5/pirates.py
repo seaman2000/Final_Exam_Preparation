@@ -32,9 +32,11 @@ while command != "Sail":
     else:
         cities[current_city][0] += population
         cities[current_city][1] += gold
+    command = input()
 
 event = input()
 while event != "End":
+
     parts = event.split("=>")
     action = parts[0]
     town = parts[1]
@@ -46,7 +48,7 @@ while event != "End":
 
     elif action == "Prosper":
         gold = int(parts[2])
-        prosper()
+        print(prosper(cities, town, gold))
 
     event = input()
 
