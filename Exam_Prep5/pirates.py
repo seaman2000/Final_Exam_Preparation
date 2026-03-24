@@ -2,21 +2,16 @@ def plunder(target_cities:dict, current_town:str, killed_people:int, plundered_g
     target_cities[current_town][0] -= killed_people
     target_cities[current_town][1] -= plundered_gold
     if target_cities[current_town][0] <= 0 or target_cities[current_town][1] <= 0:
-
         del target_cities[current_town]
-        return (f"{current_town} plundered! {plundered_gold} gold stolen, {killed_people} citizens killed.\n"
-                f"{current_town} has been wiped off the map!")
-
-    return f"{current_town} plundered! {plundered_gold} gold stolen, {killed_people} citizens killed."
-
+        return False
+    return True
 
 
 def prosper(target_cities: dict, current_town: str, gold_increase: int):
     if gold_increase < 0:
-        return f"Gold added cannot be a negative number!"
+        return False
     target_cities[current_town][1] += gold_increase
-    total_gold = target_cities[current_town][1]
-    return f"{gold_increase} gold added to the city treasury. {current_town} now has {total_gold} gold."
+    return True
 
 
 command = input()
@@ -44,11 +39,19 @@ while event != "End":
     if action == "Plunder":
         people = int(parts[2])
         gold = int(parts[3])
-        print(plunder(cities, town, people, gold))
+        result = plunder(cities, town, people, gold)
+        print(f"{town} plundered! {gold} gold stolen, {people} citizens killed.")
+        if not result:
+            print(f"{town} has been wiped off the map!")
 
     elif action == "Prosper":
         gold = int(parts[2])
-        print(prosper(cities, town, gold))
+        result = prosper(cities, town, gold)
+        if not result:
+            print(f"Gold added cannot be a negative number!")
+        else:
+            total_gold = cities[town][1]
+            print(f"{gold} gold added to the city treasury. {town} now has {total_gold} gold.")
 
     event = input()
 if cities:
