@@ -5,8 +5,12 @@ def contains(activation_key: str, sub: str):
 
 
 def flip_upper_and_lower(activation_key: str, upper_lower: str, start: int, end: int):
-
-    
+    sub_string = activation_key[start:end]
+    if upper_lower == "Upper":
+        sub_string = sub_string.upper()
+    elif upper_lower == "Lower":
+        sub_string = sub_string.lower()
+    return activation_key[:start] + sub_string + activation_key[end:]
 
 
 def slice_():
