@@ -1,6 +1,6 @@
 def contains(activation_key: str, sub: str):
     if sub in activation_key:
-        return f"{activation_key} contains {substring}"
+        return f"{activation_key} contains {sub}"
     return f"Substring not found!"
 
 
