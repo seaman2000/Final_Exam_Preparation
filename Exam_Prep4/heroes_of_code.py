@@ -51,20 +51,20 @@ while command != "End":
     if action == "CastSpell":
         needed_mana_points = int(parts[2])
         spell_name = parts[3]
-        cast_spell(party, current_hero, needed_mana_points, spell_name)
+        print(cast_spell(party, current_hero, needed_mana_points, spell_name))
 
     elif action == "TakeDamage":
         damage = int(parts[2])
         attacker = parts[3]
-        take_damage(party, current_hero, damage, attacker)
+        print(take_damage(party, current_hero, damage, attacker))
 
     elif action == "Recharge":
         amount_of_mana = int(parts[2])
-        recharge(party, current_hero, amount_of_mana)
+        print(recharge(party, current_hero, amount_of_mana))
 
     elif action == "Heal":
         amount_of_heal = int(parts[2])
-        heal(party, current_hero, amount_of_heal)
+        print(heal(party, current_hero, amount_of_heal))
 
 
     command = input()
