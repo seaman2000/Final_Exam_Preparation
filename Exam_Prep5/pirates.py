@@ -51,8 +51,10 @@ while event != "End":
         print(prosper(cities, town, gold))
 
     event = input()
-
-print(f"Ahoy, Captain! There are {len(cities)} wealthy settlements to go to:")
-for city, values in cities.items():
-    population, gold = values
-    print(f"{city} -> Population: {population} citizens, Gold: {gold} kg")
+if cities:
+    print(f"Ahoy, Captain! There are {len(cities)} wealthy settlements to go to:")
+    for city, values in cities.items():
+        population, gold = values
+        print(f"{city} -> Population: {population} citizens, Gold: {gold} kg")
+else:
+    print(f"Ahoy, Captain! All targets have been plundered and destroyed!")
