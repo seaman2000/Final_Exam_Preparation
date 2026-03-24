@@ -1,17 +1,31 @@
-def cast_spell():
-    pass
+def cast_spell(heroes:dict, hero: str, mana: int, spell: str):
+    if heroes[hero][1] >= mana:
+        heroes[hero][1] -= mana
+        mana_left = heroes[hero][1]
+        return f"{hero} has successfully cast {spell} and now has {mana_left} MP!"
+    return f"{hero} does not have enough MP to cast {spell}!"
 
 
-def take_damage():
-    pass
+def take_damage(heroes:dict, hero:str, dmg: int, attacker: str):
+    heroes[hero][0] -= dmg
+    current_hp = heroes[hero][0]
+    if heroes[hero][0] > 0:
+        return f"{hero} was hit for {dmg} HP by {attacker} and now has {current_hp} HP left!"
+    del heroes[hero]
+    return f"{hero} has been killed by {attacker}!"
 
 
-def recharge():
-    pass
+def recharge(heroes: dict, hero: str, mana_recharge:int):
+    last_mana = heroes[hero][1]
+    heroes[hero][1] += mana_recharge
+    if heroes[hero][1] > 200:
+        heroes[hero][1] = 200
+    amount_recovered = heroes[hero][1] - last_mana
+    return f"{hero} recharged for {amount_recovered} MP!"
 
 
 def heal():
-    pass
+
 
 
 
@@ -32,11 +46,19 @@ while command != "End":
     current_hero = parts[1]
 
     if action == "CastSpell":
-        pass
+        needed_mana_points = int(parts[2])
+        spell_name = parts[3]
+        cast_spell(party, current_hero, needed_mana_points, spell_name)
+
     elif action == "TakeDamage":
-        pass
+        damage = int(parts[2])
+        attacker = parts[3]
+        take_damage(party, current_hero, damage, attacker)
+
     elif action == "Recharge":
-        pass
+        amount_of_mana = int(parts[2])
+        recharge(party, current_hero, amount_of_mana)
+
     elif action == "Heal":
         pass
 
