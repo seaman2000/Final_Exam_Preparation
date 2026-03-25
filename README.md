@@ -1,6 +1,6 @@
 # 🐍 Python Fundamentals – Final Exam Preparation
 
-## 📌 Overview
+## Overview
 
 This repository contains solutions and practice problems for the **Python Fundamentals Final Exam Preparation**.
 
