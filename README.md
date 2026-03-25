@@ -48,8 +48,7 @@ The main goal is to:
 - Splitting and joining strings
 - Formatting output
 
-### ✅ Regex
-## Regex Functions
+### ✅ Regex / Regular Expressions
 - Defining regex-based functions
 - Using parameters and return values  
 - Pattern matching and text validation
