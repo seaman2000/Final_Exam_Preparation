@@ -48,4 +48,5 @@ The main goal is to:
 - Splitting and joining strings
 - Formatting output
 
+### ✅ Regex
 
