@@ -49,4 +49,8 @@ The main goal is to:
 - Formatting output
 
 ### ✅ Regex
-
+## Regex Functions
+- Defining regex-based functions
+- Using parameters and return values  
+- Pattern matching and text validation
+- Code reusability and clean structure
