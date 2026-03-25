@@ -11,7 +11,7 @@ The main goal is to:
 
 ---
 
-## 🧠 Topics Covered
+## Topics Covered
 
 ### ✅ Basic Syntax & Data Types
 - Variables
