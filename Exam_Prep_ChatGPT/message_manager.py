@@ -4,16 +4,18 @@ def add(messages:dict, name:str, sent:int, received:int):
 
 
 def message(messages:dict, sender:str, receiver:str, cap:int):
+    sender_above_cap = False
+    receiver_above_cap = False
     if sender in messages and receiver in messages:
         messages[sender][0] += 1
         messages[receiver][1] += 1
         if messages[sender][0] + messages[sender][1] >= cap:
             del messages[sender]
-            return True
-        elif messages[receiver][0] + messages[receiver][1] >= cap:
+            sender_above_cap = True
+        if messages[receiver][0] + messages[receiver][1] >= cap:
             del messages[receiver]
-            return True
-    return False
+            receiver_above_cap = True
+    return sender_above_cap, receiver_above_cap
 
 def empty(messages:dict, user:str):
     if user == "All":
@@ -37,13 +39,17 @@ while command != "Statistics":
     elif action == "Message":
         sender = parts[1]
         receiver = parts[2]
-        if message(message_manager, sender, receiver, capacity):
+        sender_full, receiver_full = message(message_manager, sender, receiver, capacity)
+        if sender_full:
             print(f"{sender} reached the capacity!")
+        if receiver_full:
+            print(f"{receiver} reached the capacity!")
 
     elif action == "Empty":
         username = parts[1]
         empty(message_manager, username)
+    command = input()
 
-print(f"Users count: {len(message_manager.keys())}")
+print(f"Users count: {len(message_manager)}")
 for user, values in message_manager.items():
     print(f"{user} - {sum(values)}")
