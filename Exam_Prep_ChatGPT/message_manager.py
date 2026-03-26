@@ -24,6 +24,7 @@ def empty(messages:dict, user:str):
 capacity = int(input())
 message_manager = {}
 command = input()
+
 while command != "Statistics":
     parts = command.split("=")
     action = parts[0]
@@ -31,6 +32,7 @@ while command != "Statistics":
         username = parts[1]
         sent = int(parts[2])
         received = int(parts[3])
+        add(message_manager, username, sent, received)
 
     elif action == "Message":
         sender = parts[1]
