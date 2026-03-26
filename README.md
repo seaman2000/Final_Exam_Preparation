@@ -1,6 +1,6 @@
 # 🐍 Python Fundamentals – Final Exam Preparation
 
-## 📌 Overview
+## Overview
 
 This repository contains solutions and practice problems for the **Python Fundamentals Final Exam Preparation**.
 
@@ -11,7 +11,7 @@ The main goal is to:
 
 ---
 
-## 🧠 Topics Covered
+## Topics Covered
 
 ### ✅ Basic Syntax & Data Types
 - Variables
@@ -48,4 +48,8 @@ The main goal is to:
 - Splitting and joining strings
 - Formatting output
 
-
+### ✅ Regex / Regular Expression
+- Defining regex-based functions
+- Using parameters and return values  
+- Pattern matching and text validation
+- Code reusability and clean structure
