@@ -30,6 +30,7 @@ command = input()
 while command != "Statistics":
     parts = command.split("=")
     action = parts[0]
+    
     if action == "Add":
         username = parts[1]
         sent = int(parts[2])
