@@ -17,11 +17,13 @@ def message(messages:dict, sender:str, receiver:str, cap:int):
             receiver_above_cap = True
     return sender_above_cap, receiver_above_cap
 
+
 def empty(messages:dict, user:str):
     if user == "All":
         messages.clear()
     elif user in messages:
         del messages[user]
+
 
 capacity = int(input())
 message_manager = {}
@@ -30,7 +32,7 @@ command = input()
 while command != "Statistics":
     parts = command.split("=")
     action = parts[0]
-    
+
     if action == "Add":
         username = parts[1]
         sent = int(parts[2])
