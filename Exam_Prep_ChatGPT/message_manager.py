@@ -15,8 +15,11 @@ def message(messages:dict, sender:str, receiver:str, cap:int):
             return True
     return False
 
-def empty():
-    pass
+def empty(messages:dict, user:str):
+    if user == "All":
+        messages.clear()
+    elif user in messages:
+        del messages[user]
 
 capacity = int(input())
 message_manager = {}
@@ -37,3 +40,8 @@ while command != "Statistics":
 
     elif action == "Empty":
         username = parts[1]
+        empty(message_manager, username)
+
+print(f"Users count: {len(message_manager.keys())}")
+for user, values in message_manager.items():
+    print(f"{user} - {sum(values)}")
