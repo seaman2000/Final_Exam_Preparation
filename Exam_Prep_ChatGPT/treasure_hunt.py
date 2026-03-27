@@ -1,4 +1,5 @@
 def loot(collection_of_treasures:list, looted: list ):
+    looted = looted[::-1]
     for item in looted:
         if item not in collection_of_treasures:
             collection_of_treasures.insert(0, item)
@@ -6,17 +7,15 @@ def loot(collection_of_treasures:list, looted: list ):
 
 def drop(collection_of_treasures:list, idx:int):
     if 0 <= idx < len(collection_of_treasures):
-        matched_item = collection_of_treasures[idx]
-        collection_of_treasures.remove(matched_item)
-        collection_of_treasures.append(matched_item)
+        match = collection_of_treasures.pop(idx)
+        collection_of_treasures.append(match)
 
 
 def steal(collection_of_treasures: list, count:int):
-    if 0 < count < len(collection_of_treasures):
-        counted_items = collection_of_treasures[-1:(-count)+1: -1]
-        collection_of_treasures = collection_of_treasures[-1:(-count) + 1: -1]
-        return collection_of_treasures, counted_items
-    return None
+        stolen_items = collection_of_treasures[-count:]
+        collection_of_treasures = collection_of_treasures[:-count]
+        return collection_of_treasures, stolen_items
+
 
 
 treasures = input().split("|")
@@ -35,11 +34,16 @@ while command != "Yohoho!":
 
     elif action == "Steal":
         count = int(parts[1])
-        if steal(treasures, count) is not None:
-            treasures, stole_items = steal(treasures,count)
+        treasures, stole_items = steal(treasures,count)
+        if stole_items:
             print(f"{', '.join(stole_items)}")
 
+    command = input()
 
-
-
+if treasures:
+    sum_of_items_len = sum(len(i) for i in treasures)
+    avg_credits = sum_of_items_len / len(treasures)
+    print(f"Average treasure gain: {avg_credits:.2f} pirate credits.")
+else:
+    print("Failed treasure hunt.")
 
