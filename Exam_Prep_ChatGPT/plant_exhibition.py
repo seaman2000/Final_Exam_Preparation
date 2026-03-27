@@ -16,7 +16,7 @@ def update(collection:dict, plant:str, rarity:int) -> bool:
         return False
 
 
-def reset(collection: dict, plant:str):
+def reset(collection: dict, plant:str) -> bool:
     if plant in collection:
         collection[plant][1] = []
         return True
