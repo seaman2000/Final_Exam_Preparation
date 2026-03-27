@@ -16,8 +16,12 @@ def update(collection:dict, plant:str, rarity:int) -> bool:
         return False
 
 
-def reset():
-    pass
+def reset(collection: dict, plant:str):
+    if plant in collection:
+        collection[plant][1] = []
+        return True
+    else:
+        return False
 
 
 number_of_plants = int(input())
@@ -41,13 +45,15 @@ while command != "Exhibition":
         rating = int(parts[2])
         if not rate(plants_collection, plant, rating):
             wrong_plant = True
+            
     elif action == "Update":
         rarity = int(parts[2])
         if not update(plants_collection, plant, rarity):
             wrong_plant = True
 
     elif action == "Reset":
-        pass
+        if not reset(plants_collection, plant):
+            wrong_plant = True
 
     if wrong_plant:
         print("error")
