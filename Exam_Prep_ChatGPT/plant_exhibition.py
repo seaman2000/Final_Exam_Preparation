@@ -45,7 +45,7 @@ while command != "Exhibition":
         rating = int(parts[2])
         if not rate(plants_collection, plant, rating):
             wrong_plant = True
-            
+
     elif action == "Update":
         rarity = int(parts[2])
         if not update(plants_collection, plant, rarity):
@@ -58,3 +58,12 @@ while command != "Exhibition":
     if wrong_plant:
         print("error")
     command = input()
+
+print(f"Plants for the exhibition:")
+for plant, values in plants_collection.items():
+    rarity, rating = values
+    if rating:
+        avg_rating = sum(rating) / len(rating)
+        print(f"- {plant}; Rarity: {rarity}; Rating: {avg_rating:.2f}")
+    else:
+        print(f"- {plant}; Rarity: {rarity}; Rating: 0.00")
