@@ -1,8 +1,8 @@
 import re
 
-def rate(collection: dict, plant:str, rating:int,) -> bool:
+def rate(collection: dict, plant:str, rating:int) -> bool:
     if plant in collection:
-        collection[plant][1] += rating
+        collection[plant][1].append(rating)
         return True
     else:
         return False
@@ -10,7 +10,7 @@ def rate(collection: dict, plant:str, rating:int,) -> bool:
 
 def update(collection:dict, plant:str, rarity:int) -> bool:
     if plant in collection:
-        collection[plant] = rarity
+        collection[plant][0] = rarity
         return True
     else:
         return False
