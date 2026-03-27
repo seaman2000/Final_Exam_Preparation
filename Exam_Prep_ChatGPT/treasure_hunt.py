@@ -12,10 +12,11 @@ def drop(collection_of_treasures:list, idx:int):
 
 
 def steal(collection_of_treasures: list, count:int):
+        if count == 0:
+            return collection_of_treasures, []
         stolen_items = collection_of_treasures[-count:]
         collection_of_treasures = collection_of_treasures[:-count]
         return collection_of_treasures, stolen_items
-
 
 
 treasures = input().split("|")
