@@ -1,5 +1,25 @@
 import re
 
+def rate(collection: dict, plant:str, rating:int,) -> bool:
+    if plant in collection:
+        collection[plant][1] += rating
+        return True
+    else:
+        return False
+
+
+def update(collection:dict, plant:str, rarity:int) -> bool:
+    if plant in collection:
+        collection[plant] = rarity
+        return True
+    else:
+        return False
+
+
+def reset():
+    pass
+
+
 number_of_plants = int(input())
 plants_collection = {}
 
@@ -12,6 +32,23 @@ for _ in range(number_of_plants):
 
 command = input()
 while command != "Exhibition":
-    parts = re.split(r'')
+    parts = re.split(r"[:\s\-]+", command)
+    action = parts[0]
+    plant = parts[1]
+    wrong_plant = False
 
+    if action == "Rate":
+        rating = int(parts[2])
+        if not rate(plants_collection, plant, rating):
+            wrong_plant = True
+    elif action == "Update":
+        rarity = int(parts[2])
+        if not update(plants_collection, plant, rarity):
+            wrong_plant = True
+
+    elif action == "Reset":
+        pass
+
+    if wrong_plant:
+        print("error")
     command = input()
