@@ -29,8 +29,6 @@ while True:
                     del animals[area][name]
                     print(f"{name} was successfully fed")
 
-
-
 print("Animals:")
 for area, animal_food in animals.items():
     for animal, food in animal_food.items():
