@@ -1,7 +1,7 @@
 import re
 
 text = input()
-pattern = r"(?:(?<=\s)|[@#]){1,}([a-z]{3,})[@#]{1,}(?:[^|A-Za-z0-9])*/{1,}(\d+)\b"
+pattern = r"(?:(?<=\s)|[@#]){1,}([a-z]{3,})[@#]{1,}(?:[^A-Za-z0-9])*/{1,}(\d+)\b"
 
 found_eggs = re.finditer(pattern, text)
 for egg in found_eggs:
