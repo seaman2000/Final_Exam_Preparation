@@ -4,6 +4,7 @@ command = input()
 while command != "Finalize":
     parts = command.split()
     action = parts[0]
+
     if action == "Encrypt":
         coded_message = coded_message[::-1]
         print(coded_message)
@@ -42,7 +43,8 @@ while command != "Finalize":
         substring = parts[1]
         if substring in coded_message:
             coded_message = coded_message.replace(substring, '')
-            print(coded_message)
+        print(coded_message)
+
 
     else:
         print("Invalid command detected!")
