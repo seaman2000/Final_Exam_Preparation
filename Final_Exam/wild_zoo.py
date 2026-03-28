@@ -12,11 +12,13 @@ while True:
         needed_food = int(needed_food)
         if area not in animals:
             animals[area] = {}
+
         animals[area][name] = animals[area].get(name, 0) + needed_food
 
     elif action == "Feed":
         name, food = parts[1].split("-")
         food = int(food)
+
         for area, animal in animals.items():
             if name in animal:
                 animal[name] -= food
@@ -31,8 +33,8 @@ for area, animal_food in animals.items():
         print(f" {animal} -> {food}g")
 
 print("Areas with hungry animals:")
-for area, animals in animals.items():
-    if animals:
-        print(f"{area}: {len(animals.keys())}")
+for area, animal_data in animals.items():
+    if animal_data:
+        print(f"{area}: {len(animal_data)}")
 
 
