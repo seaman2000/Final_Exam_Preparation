@@ -14,6 +14,8 @@ while command != "Finalize":
                 result += char.upper()
             elif char.isupper():
                 result += char.lower()
+            else:
+                result += char
         coded_message = result
         print(coded_message)
 
@@ -39,6 +41,7 @@ while command != "Finalize":
         substring = parts[1]
         if substring in coded_message:
             coded_message = coded_message.replace(substring, '')
+            print(coded_message)
 
     else:
         print("Invalid command detected!")
