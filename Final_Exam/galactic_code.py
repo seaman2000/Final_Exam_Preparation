@@ -7,6 +7,7 @@ while command != "Finalize":
     if action == "Encrypt":
         coded_message = coded_message[::-1]
         print(coded_message)
+
     elif action == "Decrypt":
         result = ''
         for char in coded_message:
